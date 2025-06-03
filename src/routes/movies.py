@@ -13,7 +13,7 @@ router = APIRouter()
 @router.get("/movies/", response_model=MovieListResponseSchema)
 async def get_movies(
     db: AsyncSession = Depends(get_db),
-    request: Request = None,
+    request: Request,
     page: int = Query(1, ge=1, description="Page number"),
     per_page: int = Query(10, ge=1, le=50, description="Items per page"),
 ):
